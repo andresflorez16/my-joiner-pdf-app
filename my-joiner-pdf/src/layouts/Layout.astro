@@ -1,0 +1,83 @@
+---
+import Header from '../components/Header.astro'
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="A friendly and secure app to join your PDF files." />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body class="bg-white bg-gradient-to-t from-white to-green-200 ">
+    <main class="relative max-w-4xl mx-auto flex items-center md:items-stretch flex-col h-screen p-5">
+      <Header />
+      <div class="w-full h-0.5 bg-gray-500 my-5"></div>
+      <section>
+        <h2 class="text-2xl font-bold">¿Cómo se utiliza?</h2>
+        <p class="text-gray-500">Simplemente arrastra tus PDFs y presiona el botón.</p>
+        <slot />
+      </section>
+      <footer class="absolute py-5 bottom-0 w-full mx-auto">
+        <div class="text-center block text-gray-500 text-sm">
+          <span>By Andrés Florez</span>
+          <span class="mx-2">•</span>
+          <span>{new Date().getFullYear()}</span>
+        </div>
+      </footer>
+    </main>
+	</body>
+</html>
+<style is:global>
+  html {
+    font-family: 'GeistMono', monospace;
+  }
+
+  @font-face {
+    font-family: "GeistMono";
+    src: url("/fonts/GeistMono-Bold.otf") format("otf");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "GeistMono";
+    src: url("/fonts/GeistMono-Bold.otf") format("otf");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "GeistMono";
+    src: url("/fonts/GeistMono-Medium.otf") format("otf");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "GeistMono";
+    src: url("/fonts/GeistMono-Regular.otf") format("otf");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "GeistMono";
+    src: url("/fonts/GeistMono-Light.otf") format("otf");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+</style>
